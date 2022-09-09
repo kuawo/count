@@ -45,7 +45,10 @@ app.get("/api/count", async (req, res) => {
 var vcount = 0
 // 获取计数
 app.get("/api/v1/count", async (req, res) => {
-  res.send(vcount++);
+  res.send({
+    code: 0,
+    data: vcount++,
+  });
 });
 
 // 小程序调用，获取微信 Open ID
