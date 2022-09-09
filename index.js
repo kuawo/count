@@ -16,7 +16,10 @@ app.get("/api/vcount", async (req, res) => {
 
 var mcount = 0
 app.get("/api/mcount", async (req, res) => {
-  res.send(mcount++);
+  res.send({
+    code: 0,
+    data: mcount++,
+  }));
 });
 
 const port = process.env.PORT || 80;
