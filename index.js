@@ -7,7 +7,6 @@ app.use(express.json());
 app.use(cors());
 
 var vcount = 0
-// 获取计数
 app.get("/api/vcount", async (req, res) => {
   res.send({
     code: 0,
@@ -16,7 +15,6 @@ app.get("/api/vcount", async (req, res) => {
 });
 
 var mcount = 0
-// 获取计数
 app.get("/api/mcount", async (req, res) => {
   res.send(mcount++);
 });
