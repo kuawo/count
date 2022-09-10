@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-var vcount = 0
+var vcount = 0;
 app.get("/api/vcount", async (req, res) => {
   res.send({
     code: 0,
@@ -14,12 +14,12 @@ app.get("/api/vcount", async (req, res) => {
   });
 });
 
-var mcount = 0
+var mcount = 0;
 app.get("/api/mcount", async (req, res) => {
   res.send({
     code: 0,
     data: mcount++,
-  }));
+  });
 });
 
 const port = process.env.PORT || 80;
