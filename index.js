@@ -10,7 +10,8 @@ const count_json = {}
 app.get("/api/count", async (req, res) => {
   let key = req.query.key
   if (!count_json[key]) { count_json[key] = 0 }
-  res.send({ count: count_json[key]++ });
+  count_json[key] = count_json[key] + 1
+  res.send({ count: count_json[key] - 1 });
 });
 
 const port = process.env.PORT || 80;
