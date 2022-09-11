@@ -14,6 +14,10 @@ app.get("/api/count", async (req, res) => {
   res.send({ count: count_json[key] - 1 });
 });
 
+app.get("/api/count_json", async (req, res) => {
+  res.send(count_json);
+});
+
 const port = process.env.PORT || 80;
 
 async function bootstrap() {
