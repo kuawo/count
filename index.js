@@ -6,17 +6,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
+const count_json = {}
+app.get("/api/count", async (req, res) => {
+  if (!count_json[req.query.keyword]) {
+    count_json[req.query.keyword] = 0
+  }
+  count_json[req.query.keyword] = count_json[req.query.keyword] + 1
+  res.send({ count: count_json[req.query.keyword] });
+});
+
 var vcount = 0;
 app.get("/api/vcount", async (req, res) => {
-  res.send(vcount++);
+  res.send({ data: vcount++ });
 });
 
 var mcount = 0;
 app.get("/api/mcount", async (req, res) => {
-  res.send({
-    code: 0,
-    data: mcount++,
-  });
+  res.send({ data: mcount++ });
 });
 
 const port = process.env.PORT || 80;
