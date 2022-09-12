@@ -18,6 +18,13 @@ app.get("/api/count_json", async (req, res) => {
   res.send(count_json);
 });
 
+app.get("/api/count_json_reset", async (req, res) => {
+  for (var key in count_json) {
+    delete count_json[key]
+  }
+  res.send(count_json);
+});
+
 const port = process.env.PORT || 80;
 
 async function bootstrap() {
