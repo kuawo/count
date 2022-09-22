@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const { getSignature, decrypt } = require('@wecom/crypto')
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -26,10 +27,10 @@ app.get("/api/count_json_reset", async (req, res) => {
   res.send(count_json);
 });
 
-const __Token = '93sMK58xLUG2ucSbJ10IHLDAa'
-const __EncodingAESKey = 'vvtma5oMjzfSNdFLRlEbmyCIBjTS6GMUP05poXl3UBE'
+const __Token = 'WILuCNR7T6FjQjH7PPUC'
+const __EncodingAESKey = 'PltVEk5gD5LuHVhfaTX9KFOd17x6BGboe5RVpJwO5jH'
 app.post("/api/kf", async (req, res) => {
-  res.send(req);
+  console.log(req.query)
 });
 
 const port = process.env.PORT || 80;
