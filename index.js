@@ -30,7 +30,14 @@ app.get("/api/count_json_reset", async (req, res) => {
 const __Token = 'WILuCNR7T6FjQjH7PPUC'
 const __EncodingAESKey = 'PltVEk5gD5LuHVhfaTX9KFOd17x6BGboe5RVpJwO5jH'
 app.get("/api/kf", async (req, res) => {
-  console.log(req.query)
+  let _param = req.query
+  console.log(_param)
+  const _signature = getSignature(__Token, _param.timestamp, _param.nonce, _param.echostr)
+  if (_signature == _param.msg_signature) {
+    const { message, id } = decrypt(__EncodingAESKey, _param.echostr)
+    console.log({ message, id })
+    return message
+  }
 });
 
 const port = process.env.PORT || 80;
