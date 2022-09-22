@@ -26,6 +26,12 @@ app.get("/api/count_json_reset", async (req, res) => {
   res.send(count_json);
 });
 
+const __Token = '93sMK58xLUG2ucSbJ10IHLDAa'
+const __EncodingAESKey = 'vvtma5oMjzfSNdFLRlEbmyCIBjTS6GMUP05poXl3UBE'
+app.get("/api/kf", async (req, res) => {
+  console.log("kf", req)
+});
+
 const port = process.env.PORT || 80;
 
 async function bootstrap() {
