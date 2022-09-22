@@ -36,7 +36,8 @@ app.get("/api/kf", async (req, res) => {
   if (_signature == _param.msg_signature) {
     const { message, id } = decrypt(__EncodingAESKey, _param.echostr)
     console.log({ message, id })
-    return message
+    res.set('Content-Type', 'text/html');
+    res.send(message);
   }
 });
 
