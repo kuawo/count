@@ -40,6 +40,17 @@ app.get("/api/kf", async (req, res) => {
     res.send(message);
   }
 });
+app.post("/api/kf", async (req, res) => {
+  let _param = req.query
+  console.log(_param)
+  const _signature = getSignature(__Token, _param.timestamp, _param.nonce, _param.echostr)
+  if (_signature == _param.msg_signature) {
+    const { message, id } = decrypt(__EncodingAESKey, _param.echostr)
+    console.log({ message, id })
+    res.set('Content-Type', 'text/html');
+    res.send(message);
+  }
+});
 
 const port = process.env.PORT || 80;
 
