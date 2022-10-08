@@ -5,7 +5,7 @@ const { getSignature, decrypt } = require('@wecom/crypto')
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+//app.use(cors());
 
 const count_json = {}
 app.get("/api/count", async (req, res) => {
